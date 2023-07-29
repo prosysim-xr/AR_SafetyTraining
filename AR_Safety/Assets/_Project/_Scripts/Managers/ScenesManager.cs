@@ -11,15 +11,15 @@ public class ScenesManager : PersistentSingleton<ScenesManager>
 	}
 	public void LoadEnterAR()
 	{
-		SceneManager.LoadScene(nameof(ARScenes.enterAR));
+		SceneManager.LoadSceneAsync(nameof(ARScenes.EnterAR));
 	}
 	public void LoadMarkerAR()
 	{
-		SceneManager.LoadScene(nameof(ARScenes.markerAR));
+		SceneManager.LoadSceneAsync(nameof(ARScenes.MarkerAR));
 	}
 	public void LoadPlaneAR()
 	{
-		SceneManager.LoadScene(nameof(ARScenes.planeAR));
+		SceneManager.LoadSceneAsync(nameof(ARScenes.PlaneAR));
 
 	}
 
@@ -27,7 +27,8 @@ public class ScenesManager : PersistentSingleton<ScenesManager>
 
 public enum ARScenes
 {
-	enterAR = 0,
-	planeAR = 1,
-	markerAR =2
+	EnterAR = 0,
+	PlaneAR = 1,
+	MarkerAR =2
 }
+

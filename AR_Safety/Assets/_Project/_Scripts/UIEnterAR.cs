@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class UIEnterAR : MonoBehaviour
 {
 	// references
 	[SerializeField] Image blackScreen;
@@ -35,6 +35,8 @@ public class UIManager : MonoBehaviour
 		btn_planeAR.onClick.AddListener(HandlePlaneARClick);
 		btn_back.onClick.AddListener(Back);
 		btn_quit.onClick.AddListener(Quit);
+		ui_state = UIStates_app.mainMenu;
+		OnUIStateUpdate?.Invoke();
 	}
 	void OnDisable()
 	{
