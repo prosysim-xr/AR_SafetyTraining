@@ -21,11 +21,11 @@ public class UIMarkerAR : MonoBehaviour
 		btn_back.onClick.RemoveListener(Back);
 	}
 
-
 	public void Back()
 	{
 		ScenesManager.Instance.LoadEnterAR();
 	}
+
 }
 public enum UIStates_MarkerAR
 {

@@ -5,29 +5,50 @@ using UnityEngine;
 public class PlaneARController : MonoBehaviour
 {
 	// References
-	[SerializeField] GameObject arRayCastOrigin;
-	[SerializeField] float rayCastHitDist = 20f;
-	[SerializeField] LineRenderer lineRenderer;
-
+	[SerializeField] private Camera arCamera;
+	ARRayCaster arRayCaster;
+	[SerializeField] Step[] steps;
+	
 
 	// Unity Callbacks
-	private void Update()
+	private void Start()
 	{
-		// Ray cast from ar session origin
-		RaycastHit hit;
-		Ray ray = new Ray(arRayCastOrigin.transform.position, arRayCastOrigin.transform.forward);
-		if(Physics.Raycast(ray, out hit, rayCastHitDist))
-		{
-			Debug.Log(".. "+hit.transform.name);
-		}
-		lineRenderer.SetPosition(0, ray.origin);
-		lineRenderer.SetPosition(1, ray.GetPoint(rayCastHitDist));
-
+		ServiceLocator.Instance.userCameraTr = arCamera.transform;
+		arRayCaster = FindAnyObjectByType<ARRayCaster>();
 	}
-	private void OnDrawGizmos()
-	{
- 		// Draw ray from ar session origin
-		Gizmos.color = Color.red;
-		Gizmos.DrawRay(arRayCastOrigin.transform.position, arRayCastOrigin.transform.forward * rayCastHitDist);
+	private void Update()
+	{/*
+		var touch = Input.GetTouch(0);
+		if(touch.phase == TouchPhase.Began)
+		{
+			if(arRayCaster.currentTag.aRBtnTag == Tagger.ARBtnTag.step0)
+			{
+				Step currentStep = arRayCaster.currentTag.transform.parent.parent.parent.GetComponent<Step>();
+				currentStep.OnNextBtnClick?.Invoke();
+				foreach(var step  in steps)
+				{
+					if(step.GetComponent<Tagger>().aRBtnTag == Tagger.ARBtnTag.step1)
+					{
+						step.OnNextStep?.Invoke();
+					}
+				}
+			}
+		}*/
+
+		if (Input.GetMouseButtonDown(0))
+		{
+			if (arRayCaster.currentTag.aRBtnTag == Tagger.ARBtnTag.step0)
+			{
+				Step currentStep = arRayCaster.currentTag.transform.parent.parent.parent.GetComponent<Step>();
+				currentStep.OnNextBtnClick?.Invoke();
+				foreach (var step in steps)
+				{
+					if (step.GetComponent<Tagger>().aRBtnTag == Tagger.ARBtnTag.step1)
+					{
+						step.OnNextStep?.Invoke();
+					}
+				}
+			}
+		}
 	}
 }
