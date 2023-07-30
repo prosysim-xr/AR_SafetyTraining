@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
 
 public class Step : MonoBehaviour
 {
-	public Transform infoPageTr;
+	[SerializeField] Transform infoPageTr;
 	Transform userCameraTr;
-
+	[SerializeField] bool toLookat = true;
 	//Event
 	public Action OnNextBtnClick;
 	public Action OnNextStep;
@@ -24,7 +25,8 @@ public class Step : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		infoPageTr.LookAt(userCameraTr);
+
+		if (toLookat){ infoPageTr.LookAt(userCameraTr); }
 	}
 	private void OnDisable()
 	{

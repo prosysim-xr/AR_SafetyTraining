@@ -6,7 +6,7 @@ public class PlaneARController : MonoBehaviour
 {
 	// References
 	[SerializeField] private Camera arCamera;
-	ARRayCaster arRayCaster;
+	[SerializeField]ARRayCaster arRayCaster;
 	[SerializeField] Step[] steps;
 	
 
@@ -14,7 +14,7 @@ public class PlaneARController : MonoBehaviour
 	private void Start()
 	{
 		ServiceLocator.Instance.userCameraTr = arCamera.transform;
-		arRayCaster = FindAnyObjectByType<ARRayCaster>();
+		ServiceLocator.Instance.arRayCaster = arRayCaster;
 	}
 	private void Update()
 	{/*
@@ -37,8 +37,11 @@ public class PlaneARController : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0))
 		{
+			Debug.Log("Mouse Clicked");
+			if(arRayCaster.currentTag == null){ return;}
 			if (arRayCaster.currentTag.aRBtnTag == Tagger.ARBtnTag.step0)
 			{
+				Debug.Log("Mouse Clicked 2");
 				Step currentStep = arRayCaster.currentTag.transform.parent.parent.parent.GetComponent<Step>();
 				currentStep.OnNextBtnClick?.Invoke();
 				foreach (var step in steps)

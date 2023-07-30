@@ -21,6 +21,7 @@ public class ARRayCaster : MonoBehaviour
 		}
 		else
 		{
+			currentTag = null;
 		}
 		lineRenderer.SetPosition(0, ray.origin);
 		lineRenderer.SetPosition(1, ray.GetPoint(rayCastHitDist));
