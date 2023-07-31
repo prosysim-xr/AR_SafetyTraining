@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 
 public class ARRayCaster : MonoBehaviour
@@ -10,6 +11,9 @@ public class ARRayCaster : MonoBehaviour
 	[SerializeField] RaycastHit hit;
 	public Tagger currentTag;
 
+	//event
+	public static  Action OnTaggerLost;
+
 	// Unity Callbacks
 	private void Update()
 	{
@@ -18,9 +22,11 @@ public class ARRayCaster : MonoBehaviour
 		if (Physics.Raycast(ray, out hit, rayCastHitDist))
 		{
 			currentTag = hit.transform.GetComponent<Tagger>();
+			currentTag.GetComponent<ARButton>().IsUsed = true;
 		}
 		else
 		{
+			OnTaggerLost?.Invoke();
 			currentTag = null;
 		}
 		lineRenderer.SetPosition(0, ray.origin);

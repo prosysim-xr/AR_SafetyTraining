@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 203962559396641303}
   - component: {fileID: 203962559396641384}
   - component: {fileID: 203962559396641385}
+  - component: {fileID: 8047333575406279044}
   - component: {fileID: 7525775498213883117}
   m_Layer: 0
   m_Name: 3DButton
@@ -236,7 +237,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 237b3f731fdeafa4b8c36b8e1b916c0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -271,6 +272,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8047333575406279044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203962559396641387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acecbc707e19eda4e95d8c1b22ce3dcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7525775498213883117
 MonoBehaviour:
   m_ObjectHideFlags: 0

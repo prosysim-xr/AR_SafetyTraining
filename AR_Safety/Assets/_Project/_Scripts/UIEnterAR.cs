@@ -31,7 +31,7 @@ public class UIEnterAR : MonoBehaviour
 		OnUIStateUpdate += UIFlowUpdate;
 		//UIStateUpdate += UIFlowUpdate;
 		btn_enterAR.onClick.AddListener(HandleEnterARClick);
-		btn_markerAR.onClick.AddListener(HandleMarkerARClick);
+		//btn_markerAR.onClick.AddListener(HandleMarkerARClick);
 		btn_planeAR.onClick.AddListener(HandlePlaneARClick);
 		btn_back.onClick.AddListener(Back);
 		btn_quit.onClick.AddListener(Quit);
@@ -43,7 +43,7 @@ public class UIEnterAR : MonoBehaviour
 		OnUIStateUpdate -= UIFlowUpdate;
 		//UIStateUpdate -= UIFlowUpdate;
 		btn_enterAR.onClick.RemoveListener(HandleEnterARClick);
-		btn_markerAR.onClick.RemoveListener(HandleMarkerARClick);
+		//btn_markerAR.onClick.RemoveListener(HandleMarkerARClick);
 		btn_planeAR.onClick.RemoveListener(HandlePlaneARClick);
 		btn_back.onClick.RemoveListener(Back);
 		btn_quit.onClick.RemoveListener(Quit);
