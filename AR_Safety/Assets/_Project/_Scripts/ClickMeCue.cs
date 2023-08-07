@@ -19,13 +19,16 @@ public class ClickMeCue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (arBtn.IsUsed)
+		if (textMeshPro != null)
 		{
-			textMeshPro.enabled = true;
-		}
-		else
-		{
-			textMeshPro.enabled = false;
+			if (arBtn.IsUsed)
+			{
+				textMeshPro.enabled = true;
+			}
+			else
+			{
+				textMeshPro.enabled = false;
+			}
 		}
     }
 
